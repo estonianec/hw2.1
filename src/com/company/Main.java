@@ -26,21 +26,28 @@ public class Main {
         short milkCount = 200;
         byte icecreamCount = 2;
         byte eggCount = 4;
-        float totalBreakfastWeight = (bananaCount * bananaWeightItem + milkCount * milkWeightItem / 100 + icecreamCount * icecreamWeightItem + eggCount * eggWeightItem); //При коммите выдает предупреждение на этой строке. Не понятно почему.
+        float totalBreakfastWeight = (bananaCount * bananaWeightItem + milkCount * milkWeightItem / 100 + icecreamCount * icecreamWeightItem + eggCount * eggWeightItem); //При коммите выдает предупреждение на этой строке "'milkCount * milkWeightItem / 100': integer division in floating-point context". Не понятно почему.
         System.out.println("Общий вес спорт-завтрака составляет " + (totalBreakfastWeight / 1000) + " кг.");
 //fourth part
         byte targetWeight = 7;
         float minLostWeight = 250;
         float maxLostWeight = 500;
-        short minLostWeightS = 250;
-        short maxLostWeightS = 500;
         float averageDays = targetWeight * 1000 / ((minLostWeight + maxLostWeight) / 2);
-        int averageDaysS = targetWeight * 1000 / ((minLostWeightS + maxLostWeightS) / 2); //Не понял, почему не дает использовать short. Так же не понял, почему при использовании float выдает результат 18.0, а не 18.666666.
         System.out.println("Если спортсмен будет терять в день по 250 г., то наберет нужную форму за " + (targetWeight * 1000 / minLostWeight) + " дней.");
         System.out.println("Если спортсмен будет терять в день по 500 г., то наберет нужную форму за " + (targetWeight * 1000 / maxLostWeight) + " дней.");
-        System.out.println("В среднем спортсмену потребуется на набор нужной формы " + averageDays + " дней");
-        System.out.println("В среднем спортсмену потребуется на набор нужной формы "+ averageDaysS + "-" + Math.round(averageDays) + " дней");
+        System.out.println("В среднем, спортсмену потребуется на набор нужной формы " + averageDays + " дней"); //Из условия задачи не совсем очевидно, какую именно цифру по итогу необходимо вывести в консоль. На всякий случай предлагаю варианты.
+        System.out.println("В среднем, спортсмену потребуется на набор нужной формы " + (byte)Math.floor(averageDays) + "-" + (byte)Math.ceil(averageDays) + " дней");
+        float hourLostWeight = (float) (averageDays % Math.floor(averageDays) * 24);
+        float minutesLostWeight = (float) (hourLostWeight % Math.floor(hourLostWeight) * 60);
+        float secondsLostWeight = (float) (minutesLostWeight % Math.floor(minutesLostWeight) * 60);
+        float msLostWeight = (float) (secondsLostWeight % Math.floor(secondsLostWeight) * 1000);
+        System.out.println("В среднем, спортсмену потребуется на набор нужной формы " + (byte)Math.floor(averageDays) + " дней, " + (byte)Math.floor(hourLostWeight) + " часов, " + (byte)Math.floor(minutesLostWeight) + " минут, " + (byte)Math.floor(secondsLostWeight) + " секунд, " + (Math.round(msLostWeight)) + " мс.");
 //fifth part
-
+        int salaryMasha = 67_760;
+        int salaryDenis = 83_690;
+        int salaryKris = 76_230;
+        System.out.println("Маша теперь получает " + (int)(salaryMasha * 1.1) + " рублей. Годовой доход вырос на " + (int)(salaryMasha * 1.1 * 12 - salaryMasha * 12) + " рублей."); //Понимаю, что можно было добавить ещё переменные для хранения предудыщей зп, или наоборот для новой зп, но не уверен что вообще лучше - оптимизировать кол-во кода или переменных.
+        System.out.println("Денис теперь получает " + (int)(salaryDenis * 1.1) + " рублей. Годовой доход вырос на " + (int)(salaryDenis * 1.1 * 12 - salaryDenis * 12) + " рублей."); //В критериях оценки написано "– Операция сложения выполнена верно". Мне кажется применять сложение здесь можно, но неоптимально =)
+        System.out.println("Кристина теперь получает " + (int)(salaryKris * 1.1) + " рублей. Годовой доход вырос на " + (int)(salaryKris * 1.1 * 12 - salaryKris * 12) + " рублей.");
     }
 }
