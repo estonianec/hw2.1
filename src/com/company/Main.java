@@ -26,7 +26,7 @@ public class Main {
         short milkCount = 200;
         byte icecreamCount = 2;
         byte eggCount = 4;
-        float totalBreakfastWeight = (bananaCount * bananaWeightItem + milkCount * milkWeightItem / 100 + icecreamCount * icecreamWeightItem + eggCount * eggWeightItem); //При коммите выдает предупреждение на этой строке "'milkCount * milkWeightItem / 100': integer division in floating-point context". Не понятно почему.
+        float totalBreakfastWeight = (bananaCount * bananaWeightItem + (float)milkCount * milkWeightItem / 100 + icecreamCount * icecreamWeightItem + eggCount * eggWeightItem); //При коммите выдает предупреждение на этой строке "'milkCount * milkWeightItem / 100': integer division in floating-point context". Не понятно почему.
         System.out.println("Общий вес спорт-завтрака составляет " + (totalBreakfastWeight / 1000) + " кг.");
 //fourth part
         byte targetWeight = 7;
@@ -49,5 +49,25 @@ public class Main {
         System.out.println("Маша теперь получает " + (int)(salaryMasha * 1.1) + " рублей. Годовой доход вырос на " + (int)(salaryMasha * 1.1 * 12 - salaryMasha * 12) + " рублей."); //Понимаю, что можно было добавить ещё переменные для хранения предудыщей зп, или наоборот для новой зп, но не уверен что вообще лучше - оптимизировать кол-во кода или переменных.
         System.out.println("Денис теперь получает " + (int)(salaryDenis * 1.1) + " рублей. Годовой доход вырос на " + (int)(salaryDenis * 1.1 * 12 - salaryDenis * 12) + " рублей."); //В критериях оценки написано "– Операция сложения выполнена верно". Мне кажется применять сложение здесь можно, но неоптимально =)
         System.out.println("Кристина теперь получает " + (int)(salaryKris * 1.1) + " рублей. Годовой доход вырос на " + (int)(salaryKris * 1.1 * 12 - salaryKris * 12) + " рублей.");
+//sixth part
+        int a = 12; // для a и b использую int, так как они используются в задачах #7 и #8.
+        int b = 27;
+        byte c = 44;
+        byte d = 15;
+        byte e = 9;
+        int result = a * (b + (c - d * e));
+        result = -result;
+        System.out.println("Результат выполнения задачи №6 = " + result);
+//seventh part
+        a = 5; //a и b объявлены в задаче #6
+        b = 7;
+        a = a * b / a;
+        System.out.println("Новое значение переменной a = " + a);
+        b = b - (int)Math.sqrt(b);
+        System.out.println("Новое значение переменной b = " + b);
+//eighth part
+        a = 222; //a и b объявлены в задаче #6
+        b = ((a % 100) - (a % 100) % 10) / 10;
+        System.out.println("Значение переменной b = " + b);
     }
 }
