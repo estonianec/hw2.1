@@ -4,13 +4,13 @@ public class Main {
 
     public static void main(String[] args) {
 
-        task1();
-        task2();
-        task3();
-        task4();
-        task5();
-        task6();
-        task7();
+//        task1();
+//        task2();
+//        task3();
+//        task4();
+//        task5();
+//        task6();
+//        task7();
         task8();
 
     }
@@ -89,17 +89,17 @@ public class Main {
     public static void task7() {
         int a = 5;
         int b = 7;
-        a = a * b / a;
-        b = b - (int) Math.sqrt(b);
-        // a = a * b / a; - как вариант
-        // b = b - b  / b - b / b; - как вариант
+        a = a + b;
+        b = a - b;
+        a = a - b;
         System.out.println("Новое значение переменной a = " + a);
         System.out.println("Новое значение переменной b = " + b);
     }
 
     public static void task8() {
-        int a = 222; //a и b объявлены в задаче #6
-        int b = ((a % 100) - (a % 100) % 10) / 10;
+        int a = 123;
+        int b = a / 10 % 10;
+//      int b = ((a % 100) - (a % 100) % 10) / 10;
         System.out.println("Значение переменной b = " + b);
     }
 }
